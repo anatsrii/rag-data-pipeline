@@ -1,0 +1,45 @@
+============================================================
+Odoo 19 Documentation Crawler - Quality Report
+============================================================
+Generated: 2026-03-01 17:04:49
+
+📊 Statistics
+----------------------------------------
+Total Documents: 907
+Total Words: 1,389,357
+Average Words per Document: 1,531
+
+📁 Categories
+----------------------------------------
+  functional: 757
+  developer: 115
+  setup: 27
+  general: 8
+
+📄 Top 10 Largest Documents
+----------------------------------------
+  View architectures... (19,180 words)
+  Belgium... (17,307 words)
+  ORM API... (17,173 words)
+  Mexico... (10,965 words)
+  Upgrade utils... (10,737 words)
+  Javascript Reference... (8,082 words)
+  HOOT... (7,553 words)
+  Command-line interface (CLI)... (6,868 words)
+  United States... (6,775 words)
+  Mixins and Useful Classes... (6,359 words)
+
+📄 Top 10 Smallest Documents
+----------------------------------------
+  eCommerce design... (128 words)
+  Subscriptions in the eCommerce shop... (165 words)
+  Web design... (172 words)
+  Structure... (176 words)
+  Cash machines... (178 words)
+  In-person payments... (194 words)
+  Cash rounding... (200 words)
+  Withholding taxes... (202 words)
+  Configuration... (203 words)
+  Mollie... (204 words)
+
+============================================================

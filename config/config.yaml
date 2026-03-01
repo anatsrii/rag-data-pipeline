@@ -1,0 +1,170 @@
+# Odoo 19 Documentation Crawler Configuration
+# ============================================
+
+# Odoo Documentation URLs
+odoo:
+  base_url: "https://www.odoo.com/documentation/19.0"
+  developer_url: "https://www.odoo.com/documentation/19.0/developer.html"
+  user_url: "https://www.odoo.com/documentation/19.0/applications.html"
+  
+  # Sitemap URLs for discovery
+  sitemaps:
+    - "https://www.odoo.com/documentation/19.0/sitemap.xml"
+  
+  # CSS Selectors for content extraction
+  selectors:
+    main_content: "main, article, .document, [role='main']"
+    title: "h1, .document-title"
+    headings: "h1, h2, h3, h4, h5, h6"
+    code_blocks: "pre, code, .highlight"
+    
+  # Elements to remove (noise reduction)
+  remove_selectors:
+    - ".navbar"           # Navigation bar
+    - ".footer"           # Footer
+    - ".sidebar"          # Sidebar navigation
+    - ".edit-github"      # Edit on GitHub button
+    - ".ads"              # Advertisements
+    - ".breadcrumb"       # Breadcrumb navigation
+    - ".toc"              # Table of contents (optional)
+    - "nav"               # Navigation elements
+    - "header"            # Header (if not main content)
+    - ".announcement"     # Announcement banners
+    - ".o_social_share"   # Social share buttons
+
+# Crawler Settings
+crawler:
+  # Rate limiting (seconds between requests)
+  delay: 2
+  
+  # Maximum concurrent requests
+  max_concurrent: 3
+  
+  # Request timeout (seconds)
+  timeout: 30
+  
+  # Maximum retries for failed requests
+  max_retries: 3
+  
+  # User agent string
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  
+  # Respect robots.txt
+  respect_robots: true
+  
+  # Use Playwright for JavaScript-heavy pages
+  use_playwright: false
+  
+  # Pages that require Playwright (regex patterns)
+  playwright_patterns:
+    - ".*interactive.*"
+    - ".*tutorial.*"
+    - ".*playground.*"
+
+# Storage Settings
+storage:
+  # Base path for raw documents
+  raw_docs_path: "./raw_docs"
+  
+  # Metadata database
+  metadata_db: "./config/metadata.json"
+  
+  # Failed URLs log
+  failed_urls_log: "./config/failed_urls.json"
+  
+  # Crawled URLs cache
+  crawled_cache: "./config/crawled_cache.json"
+  
+  # Output format: markdown, html, or both
+  output_format: "markdown"
+  
+  # Create subdirectories by category
+  organize_by_category: true
+
+# Content Processing
+processing:
+  # Convert HTML to Markdown
+  convert_to_markdown: true
+  
+  # Preserve code block formatting
+  preserve_code_blocks: true
+  
+  # Extract and save images
+  extract_images: false
+  
+  # Image download directory (if extract_images is true)
+  image_dir: "./raw_docs/images"
+  
+  # Minimum content length (characters) to save
+  min_content_length: 100
+  
+  # Clean whitespace
+  clean_whitespace: true
+
+# Metadata Settings
+metadata:
+  # Fields to extract/store
+  fields:
+    - source_url
+    - title
+    - version
+    - category
+    - subcategory
+    - last_crawled
+    - word_count
+    - headings_structure
+
+# Categories Mapping
+categories:
+  developer:
+    path: "/developer"
+    name: "Technical"
+    patterns:
+      - "/developer/.*"
+      - "/reference/.*"
+      - "/api/.*"
+  
+  functional:
+    path: "/applications"
+    name: "Functional"
+    patterns:
+      - "/applications/.*"
+      - "/user/.*"
+  
+  setup:
+    path: "/administration"
+    name: "Setup"
+    patterns:
+      - "/administration/.*"
+      - "/installation/.*"
+      - "/deployment/.*"
+
+# RAG Settings
+rag:
+  # Vector Database storage path
+  # แบบที่ 1: เก็บในโปรเจกต์ (default)
+  # db_path: "./chroma_db"
+  
+  # แบบที่ 2: เก็บนอกโปรเจกต์ (แนะนำ - ใช้ร่วมกับ AI modules)
+  db_path: "E:/sandbox_claude/data/odoo19_chroma_db"
+  
+  # แบบที่ 3: ใช้ External ChromaDB Server
+  # db_host: "localhost"
+  # db_port: 8000
+  
+  # Embedding model
+  embedding_model: "all-MiniLM-L6-v2"
+  
+  # Chunk settings
+  chunk_size: 500
+  chunk_overlap: 100
+  
+  # Search settings
+  default_n_results: 5
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "./config/crawler.log"
+  console: true
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
