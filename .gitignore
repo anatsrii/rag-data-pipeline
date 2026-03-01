@@ -58,3 +58,11 @@ chroma_db/
 # Test files
 test*.md
 test*.py
+
+# Test results / reports (keep only examples)
+report.txt
+missing_urls.txt
+failed_urls_fixed.txt
+crawl_background.log
+AI_MODULE_INTEGRATION.md
+RAG_STORAGE_GUIDE.md
