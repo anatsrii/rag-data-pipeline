@@ -1,0 +1,53 @@
+# Data Sources Configuration
+# ==========================
+# Define multiple data sources to crawl and index
+
+# Example sources (uncomment and modify as needed)
+
+sources:
+  # Example 1: Odoo Documentation
+  # - name: "odoo"
+  #   description: "Odoo 19 Documentation"
+  #   category: "erp"
+  #   urls:
+  #     - "https://www.odoo.com/documentation/19.0/developer.html"
+  #     - "https://www.odoo.com/documentation/19.0/applications.html"
+  #   chunk_size: 1000
+  #   chunk_overlap: 200
+
+  # Example 2: FastAPI Documentation
+  # - name: "fastapi"
+  #   description: "FastAPI Framework Docs"
+  #   category: "framework"
+  #   urls:
+  #     - "https://fastapi.tiangolo.com/tutorial/"
+  #     - "https://fastapi.tiangolo.com/advanced/"
+  #   chunk_size: 800
+  #   chunk_overlap: 150
+
+  # Example 3: Your Company Wiki
+  # - name: "company_wiki"
+  #   description: "Internal Company Documentation"
+  #   category: "internal"
+  #   urls:
+  #     - "https://wiki.yourcompany.com/"
+  #   chunk_size: 1200
+  #   chunk_overlap: 300
+
+  # Example 4: Python Documentation
+  # - name: "python"
+  #   description: "Python 3.12 Documentation"
+  #   category: "language"
+  #   urls:
+  #     - "https://docs.python.org/3/tutorial/"
+  #     - "https://docs.python.org/3/library/"
+
+# Categories help organize related sources
+# Same category = related content (can be searched together)
+# Different category = separate content (filter by category)
+
+categories:
+  erp: "ERP Systems"
+  framework: "Web Frameworks"
+  internal: "Internal Documentation"
+  language: "Programming Languages"
