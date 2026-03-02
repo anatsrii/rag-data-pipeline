@@ -12,8 +12,6 @@ Usage:
     crawler.crawl_urls(['https://example.com/docs'])
 """
 
-from .universal_crawler import UniversalCrawler
-from .url_discovery import URLDiscovery
-from .content_extractor import ContentExtractor
+from .universal_crawler import UniversalCrawler, CrawlConfig
 
-__all__ = ['UniversalCrawler', 'URLDiscovery', 'ContentExtractor']
+__all__ = ['UniversalCrawler', 'CrawlConfig']
