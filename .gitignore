@@ -47,8 +47,9 @@ config/*.log
 .DS_Store
 Thumbs.db
 
-# Database
+# Database & Data
 chroma_db/
+data/
 *.sqlite3
 *.sqlite3-journal
 
