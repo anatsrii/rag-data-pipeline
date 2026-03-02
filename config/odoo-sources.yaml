@@ -1,0 +1,104 @@
+# Odoo Sources Configuration
+# ==========================
+# รวมแหล่งข้อมูล Odoo ที่สำคัญ
+# 
+# ใช้งาน:
+#   python -c "
+#   from src.multi_source_pipeline import MultiSourcePipeline
+#   from src.storage import SourceManager
+#   
+#   manager = SourceManager()
+#   sources = manager.load_sources_from_yaml('config/odoo-sources.yaml')
+#   
+#   pipeline = MultiSourcePipeline()
+#   pipeline.run(sources)
+#   "
+
+sources:
+  # 1. Odoo Official Documentation
+  - name: "odoo_docs"
+    description: "Odoo 17.0 Official Documentation"
+    category: "documentation"
+    urls:
+      - "https://www.odoo.com/documentation/17.0/developer.html"
+      - "https://www.odoo.com/documentation/17.0/applications.html"
+      - "https://www.odoo.com/documentation/17.0/administration.html"
+    chunk_size: 1000
+    chunk_overlap: 200
+
+  # 2. OWL Framework
+  - name: "owl_framework"
+    description: "OWL Framework Documentation and Examples"
+    category: "frontend"
+    urls:
+      - "https://github.com/odoo/owl/tree/master/doc"
+      - "https://odoo.github.io/owl/playground/"
+    chunk_size: 800
+    chunk_overlap: 150
+
+  # 3. Odoo Source Code (Python Backend)
+  - name: "odoo_core_python"
+    description: "Odoo Core Python Source Code"
+    category: "core"
+    urls:
+      - "https://github.com/odoo/odoo/tree/17.0/odoo"
+      - "https://github.com/odoo/odoo/tree/17.0/odoo/addons"
+    chunk_size: 1500
+    chunk_overlap: 300
+
+  # 4. Odoo Source Code (JavaScript Frontend)
+  - name: "odoo_core_js"
+    description: "Odoo Core JavaScript Source Code"
+    category: "core"
+    urls:
+      - "https://github.com/odoo/odoo/tree/17.0/addons/web/static/src"
+    chunk_size: 1200
+    chunk_overlap: 250
+
+  # 5. OCA Server Tools
+  - name: "oca_server_tools"
+    description: "OCA Server Tools and Utilities"
+    category: "oca"
+    urls:
+      - "https://github.com/OCA/server-tools/tree/17.0"
+    chunk_size: 1500
+    chunk_overlap: 300
+
+  # 6. OCA Web Extensions
+  - name: "oca_web"
+    description: "OCA Web Client Extensions"
+    category: "oca"
+    urls:
+      - "https://github.com/OCA/web/tree/17.0"
+    chunk_size: 1500
+    chunk_overlap: 300
+
+  # 7. OCA Sale Workflow
+  - name: "oca_sale"
+    description: "OCA Sale and CRM Modules"
+    category: "oca"
+    urls:
+      - "https://github.com/OCA/sale-workflow/tree/17.0"
+    chunk_size: 1500
+    chunk_overlap: 300
+
+  # 8. OCA Purchase Workflow
+  - name: "oca_purchase"
+    description: "OCA Purchase Modules"
+    category: "oca"
+    urls:
+      - "https://github.com/OCA/purchase-workflow/tree/17.0"
+    chunk_size: 1500
+    chunk_overlap: 300
+
+# Categories สำหรับ grouping
+categories:
+  documentation: "Official Odoo Documentation"
+  frontend: "Frontend Development (OWL)"
+  core: "Core Source Code"
+  oca: "OCA Community Modules"
+
+# Notes:
+# - GitHub URLs อาจต้องใช้ raw content หรือ GitHub API
+# - บาง URLs อาจต้อง crawl ผ่าน sitemap หรือ sidebar navigation
+# - แนะนำให้ crawl ทีละ source เพื่อควบคุม quality
