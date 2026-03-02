@@ -55,9 +55,12 @@ chroma_db/
 # Logs
 *.log
 
-# Test files
-test*.md
-test*.py
+# Test files (root only)
+/test*.md
+/test*.py
+
+# Keep tests in tests/ folder
+!tests/*.py
 
 # Test results / reports (keep only examples)
 report.txt
