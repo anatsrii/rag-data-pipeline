@@ -13,5 +13,6 @@ Usage:
 """
 
 from .universal_crawler import UniversalCrawler, CrawlConfig
+from .url_discovery import URLDiscovery
 
-__all__ = ['UniversalCrawler', 'CrawlConfig']
+__all__ = ['UniversalCrawler', 'CrawlConfig', 'URLDiscovery']
